@@ -5,13 +5,17 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Link from "next/link";
 import courseData from '@/data/music_courses.json'
+import { BackgroundBeams } from "@/components/ui/background-beams";
+ 
 
 
 
 export default function Courses() {
     return (
-        <div className="min-h-screen bg-black py-12 pt-36">
+        <div className="relative min-h-screen bg-black py-12 pt-36">
+               <BackgroundBeams className="absolute top-0 left-0 w-full h-full z-0"  />
             <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white">All courses ({courseData.courses.length})</h1>
+             
             <div className="flex flex-wrap justify-center">
                 {courseData.courses.map((course)=>(<>
                     <CardContainer className="inter-var mx-4">
@@ -63,6 +67,7 @@ export default function Courses() {
                 </>))}
                 
             </div>
+            
         </div>
     )
 }
